@@ -1,0 +1,11 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/about-author/page": "app/about-author/page.js",
+  "/about-book/page": "app/about-book/page.js",
+  "/checkout/page": "app/checkout/page.js",
+  "/api/create-payment-intent/route": "app/api/create-payment-intent/route.js",
+  "/contact/page": "app/contact/page.js",
+  "/api/lulu-order/route": "app/api/lulu-order/route.js",
+  "/page": "app/page.js",
+  "/testimonials/page": "app/testimonials/page.js"
+}

@@ -226,10 +226,35 @@ export default function CheckoutPage() {
             {/* Step 1: Contact */}
             <Section title="1. Identity" icon={Shield} active={step === "contact"} done={currentStep > 0} onEdit={() => setStep("contact")}>
               <div className="grid md:grid-cols-2 gap-6">
-                <Field label="First Name" value={contact.firstName} onChange={(v) => setContact({...contact, firstName: v})} placeholder="Cyril" />
-                <Field label="Last Name" value={contact.lastName} onChange={(v) => setContact({...contact, lastName: v})} placeholder="Ryan" />
-                <Field label="Email" className="md:col-span-2" value={contact.email} onChange={(v) => setContact({...contact, email: v})} placeholder="author@domain.com" />
-                <Field label="Direct Phone" className="md:col-span-2" value={contact.phone} onChange={(v) => setContact({...contact, phone: v})} placeholder="+353 ..." />
+                <Field 
+                  label="First Name" 
+                  value={contact.firstName} 
+                  onChange={(v: string) => setContact({...contact, firstName: v})} 
+                  placeholder="Cyril" 
+                />
+
+                <Field 
+                  label="Last Name" 
+                  value={contact.lastName} 
+                  onChange={(v: string) => setContact({...contact, lastName: v})} 
+                  placeholder="Ryan" 
+                />
+
+                <Field 
+                  label="Email" 
+                  className="md:col-span-2" 
+                  value={contact.email} 
+                  onChange={(v: string) => setContact({...contact, email: v})} 
+                  placeholder="author@domain.com" 
+                />
+
+                <Field 
+                  label="Direct Phone" 
+                  className="md:col-span-2" 
+                  value={contact.phone} 
+                  onChange={(v: string) => setContact({...contact, phone: v})} 
+                  placeholder="+353 ..." 
+                  />
               </div>
               <button disabled={!contact.firstName || !contact.email} onClick={() => setStep("shipping")} className="btn btn-primary w-full mt-10 uppercase tracking-widest">Continue →</button>
             </Section>
@@ -240,14 +265,36 @@ export default function CheckoutPage() {
                 <p className="p-6 bg-[#f4f7f9] rounded-2xl italic font-garamond text-slate-500">Instant delivery to your email after checkout.</p>
               ) : (
                 <div className="space-y-6">
-                  <Field label="Address Line 1" value={shipping.address1} onChange={(v) => setShipping({...shipping, address1: v})} placeholder="Street address" />
-                  <Field label="Address Line 2" value={shipping.address2} onChange={(v) => setShipping({...shipping, address2: v})} placeholder="Apt, Suite..." />
+                 <Field 
+                  label="Address Line 1" 
+                  value={shipping.address1} 
+                  onChange={(v: string) => setShipping({...shipping, address1: v})} 
+                />
+
+                <Field 
+                  label="Address Line 2" 
+                  value={shipping.address2} 
+                  onChange={(v: string) => setShipping({...shipping, address2: v})} 
+                />
                   <div className="grid grid-cols-2 gap-6">
-                    <Field label="City" value={shipping.city} onChange={(v) => setShipping({...shipping, city: v})} placeholder="Dublin" />
-                    <Field label="State / County" value={shipping.state} onChange={(v) => setShipping({...shipping, state: v})} placeholder="Galway" />
+                    <Field 
+                      label="City" 
+                      value={shipping.city} 
+                      onChange={(v: string) => setShipping({...shipping, city: v})} 
+                    />  
+
+                    <Field 
+                      label="State / County" 
+                      value={shipping.state} 
+                      onChange={(v: string) => setShipping({...shipping, state: v})} 
+                    />
                   </div>
                   <div className="grid grid-cols-2 gap-6">
-                    <Field label="Postal / ZIP" value={shipping.zip} onChange={(v) => setShipping({...shipping, zip: v})} placeholder="ZIP Code" />
+                    <Field 
+                      label="Postal / ZIP" 
+                      value={shipping.zip} 
+                      onChange={(v: string) => setShipping({...shipping, zip: v})} 
+                    />
                     <div>
                       <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Country</label>
                       <select onChange={(e) => setShipping({...shipping, country: e.target.value})} className="w-full px-6 py-4 rounded-2xl border border-slate-200 bg-white focus:outline-none focus:border-primary font-bold">

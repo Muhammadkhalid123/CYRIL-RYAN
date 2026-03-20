@@ -22,8 +22,7 @@ export default function AboutAuthor() {
               <div className="relative group">
                 <div className="absolute inset-0 bg-primary/20 blur-[120px] rounded-full z-0 opacity-40 group-hover:opacity-60 transition-opacity" />
                 <div className="relative z-10 glass-card p-4 overflow-hidden rounded-[3rem] border-white/5 shadow-[0_50px_100px_-40px_rgba(0,0,0,0.5)]">
-                   <div className="aspect-[4/5] bg-[url('https://images.unsplash.com/photo-1544723795-3ca315cadc28?auto=format&fit=crop&q=80&w=600')] bg-cover bg-center rounded-[2.5rem] grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" />
-                   <div className="absolute bottom-10 left-10 p-8 glass-card border-white/20 text-white backdrop-blur-2xl">
+                    <div className="aspect-[4/5] bg-[url('/cyril-ryan.png')] bg-cover bg-center rounded-[2.5rem] grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" />                   <div className="absolute bottom-10 left-10 p-8 glass-card border-white/20 text-white backdrop-blur-2xl">
                       <Quote className="text-accent mb-4" size={40} />
                       <p className="text-2xl font-serif font-bold italic">Top 10 Cultural Releases</p>
                       <p className="text-white/40 font-outfit uppercase tracking-widest text-xs mt-2">— Sunday Literary Review</p>

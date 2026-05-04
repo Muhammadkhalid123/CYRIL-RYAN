@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { 
   ShoppingBag, 
   X, 
@@ -16,6 +17,10 @@ export function Navbar() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { cartItems, removeFromCart, cartTotal } = useCart();
+  const pathname = usePathname();
+
+  const isHomePage = pathname === "/";
+  const isDarkText = isScrolled || !isHomePage;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -32,21 +37,21 @@ export function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ${isScrolled ? "bg-[#1f3642]/95 backdrop-blur-2xl py-4 shadow-2xl border-b border-white/5" : "bg-transparent py-8"}`}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-700 ${isScrolled ? "bg-white/95 backdrop-blur-2xl py-4 shadow-md border-b border-slate-100" : "bg-transparent py-8"}`}>
         <div className="container mx-auto px-6 flex items-center justify-between">
-          <Link href="/" className="text-3xl font-serif font-bold text-white tracking-[0.1em] group">
+          <Link href="/" className={`text-3xl font-serif font-bold tracking-[0.1em] group transition-colors ${isDarkText ? "text-[#1f3642]" : "text-white"}`}>
             CYRIL <span className="text-primary italic transition-all group-hover:text-accent">RYAN</span>
           </Link>
           
           <div className="hidden md:flex items-center gap-12">
             {navLinks.map((item) => (
-              <Link key={item.name} href={item.href} className="text-[10px] font-black uppercase tracking-[0.25em] text-white/50 hover:text-white transition-all hover:-translate-y-0.5">
+              <Link key={item.name} href={item.href} className={`text-[10px] font-black uppercase tracking-[0.25em] transition-all hover:-translate-y-0.5 ${isDarkText ? "text-[#1f3642]/60 hover:text-[#1f3642]" : "text-white/50 hover:text-white"}`}>
                 {item.name}
               </Link>
             ))}
             
             <div className="flex items-center gap-6">
-              <button onClick={() => setIsCartOpen(true)} className="relative p-2 text-white/80 hover:text-white transition-all transform hover:scale-110">
+              <button onClick={() => setIsCartOpen(true)} className={`relative p-2 transition-all transform hover:scale-110 ${isDarkText ? "text-[#1f3642]/80 hover:text-[#1f3642]" : "text-white/80 hover:text-white"}`}>
                 <ShoppingBag size={24} strokeWidth={1.5} />
                 {cartItems.length > 0 && (
                   <span className="absolute -top-1 -right-1 bg-accent text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center animate-pulse">
@@ -55,13 +60,13 @@ export function Navbar() {
                 )}
               </button>
               
-              <Link href="/#buy-now" className="bg-white text-[#1f3642] px-8 py-3 rounded-full text-xs font-black uppercase tracking-[0.15em] shadow-xl hover:bg-accent hover:text-white transition-all active:scale-95 flex items-center gap-2">
+              <Link href="/#buy-now" className={`px-8 py-3 rounded-full text-xs font-black uppercase tracking-[0.15em] shadow-xl transition-all active:scale-95 flex items-center gap-2 ${isDarkText ? "bg-[#1f3642] text-white hover:bg-accent" : "bg-white text-[#1f3642] hover:bg-accent hover:text-white"}`}>
                 Order Direct
               </Link>
             </div>
           </div>
 
-          <button onClick={() => setIsMenuOpen(true)} className="md:hidden text-white">
+          <button onClick={() => setIsMenuOpen(true)} className={`md:hidden transition-colors ${isDarkText ? "text-[#1f3642]" : "text-white"}`}>
             <Menu size={24} />
           </button>
         </div>

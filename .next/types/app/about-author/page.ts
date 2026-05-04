@@ -1,4 +1,4 @@
-// File: C:\Users\User\OneDrive\Desktop\CRYIL RYAN\echoes-of-ireland\app\about-author\page.tsx
+// File: C:\Users\User\Desktop\CYRIL-RYAN\app\about-author\page.tsx
 import * as entry from '../../../../app/about-author/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
